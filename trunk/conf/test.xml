@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bureau>
+	<element nom="test" x="20" y="50" commande="explorer.exe" icone="Y:/av-3111.gif"/>
+</bureau>
