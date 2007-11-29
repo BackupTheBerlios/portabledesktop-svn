@@ -1,0 +1,37 @@
+hello 1 
+nom de l'objet à charger :  Y:/dev/projects/python/EBureau/src/conf/test.xml
+False
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+Form.py.createButtonsPanel > ids button =  5100 5101 5100
+BureauFrame.OnPaint
+DesktopMenu.OnModify :  5101 5101
+hello 1 
+nom de l'objet à charger :  Y:/dev/projects/python/EBureau/src/conf/test.xml
+False
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+Form.py.createButtonsPanel > ids button =  5100 5101 5100
+BureauFrame.OnPaint
+DesktopMenu.OnModify :  5101 5101
+hello 1 
+nom de l'objet à charger :  Y:/dev/projects/python/EBureau/src/conf/test.xml
+False
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+Form.py.createButtonsPanel > ids button =  5100 5101 5100
+BureauFrame.OnPaint
+DesktopMenu.OnModify :  5101 5101
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+hello 1 
+nom de l'objet à charger :  Y:/dev/projects/python/EBureau/src/conf/test.xml
+False
+BureauFrame.OnPaint
+BureauFrame.OnPaint
+Form.py.createButtonsPanel > ids button =  5100 5101 5100
+BureauFrame.OnPaint
+DesktopMenu.OnModify :  5100 5100
