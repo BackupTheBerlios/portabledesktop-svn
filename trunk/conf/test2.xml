@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<desktop>
-	Some textual content.
-	<element commande="explorer.exe" icone="$ROOT$/av-3111.gif" nom="test" x="20" y="50"/>
-	<element commande="$ROOT$\dev\tools\dualxplorer_dualxplorer_0.8.66_francais_14841.exe" icone="$INSTALL_PATH$\resources\default.gif" nom="Dual Explorer" x="247" y="67"/>
-</desktop>
