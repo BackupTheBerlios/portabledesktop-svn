@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form-conf>
+  <elements>
+  	<element label="nom" attribut="nom" position="1" type="text"/>
+  	<element label="commande" attribut="commande" position="2" type="multiline"/>
+  	<element label="icone" attribut="icone" position="3" type="file" icone="$INSTALL_PATH$/resources/OPEN.ICO"/>
+  </elements>
+</form-conf>
