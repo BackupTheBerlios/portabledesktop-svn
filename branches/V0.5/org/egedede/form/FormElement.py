@@ -11,7 +11,7 @@ class FormElement(wx.Panel):
         sizer = wx.BoxSizer(wx.HORIZONTAL)
         text = wx.StaticText(self,label=self.label)
         sizer.Add(text)
-        self.control = wx.TextCtrl(self,value=self.value,name=self.label,size=wx.Size(250,20))
+        self.control = wx.TextCtrl(self,value=self.value,name=self.label,size=wx.Size(250,20),style=3)
         sizer.Add(self.control)
         if confElement['type']== 'file':
             button = wx.BitmapButton(self, wx.ID_OPEN, wx.Bitmap('resources\\OPEN.ICO'))
@@ -33,7 +33,6 @@ class FormElement(wx.Panel):
             self, message="Choose a file",
             defaultDir=os.getcwd(), 
             defaultFile="",
-            wildcard='*.GIF|*.ICO',
             style=wx.OPEN
             )
         # Show the dialog and retrieve the user response. If it is the OK response, 

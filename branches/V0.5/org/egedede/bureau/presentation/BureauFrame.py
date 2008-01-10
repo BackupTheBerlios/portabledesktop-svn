@@ -5,10 +5,9 @@ class BureauFrame (wx.Frame):
     def __init__(self,parent=None,bureau=None, facade=None):
         self.bureau = bureau
         self.facade = facade
-        self.background = wx.Image(self.facade.computePath(Configuration.Configuration.getInstance('general').getProperty('background')))
         wx.Frame.__init__(self, parent, -1, "Bureau", wx.DefaultPosition, (400,300))
         self.panel =  panel.BureauPanel(self, self.bureau,self.facade)
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
+#        self.Bind(wx.EVT_PAINT, self.OnPaint)
         self.Bind(wx.EVT_SIZE,self.OnResize)
         self.Bind(wx.EVT_CLOSE, self.EvtClose)
  
@@ -23,8 +22,8 @@ class BureauFrame (wx.Frame):
         else:
             dlg.Destroy()        
     def OnResize(self,evt):
-#        self.panel.SetSize(self.GetClientSize())
-         self.Refresh()
+        self.panel.SetSize(self.GetClientSize())
+        self.Refresh()
 
     def OnPaint(self,evt):
         print "BureauFrame.OnPaint"

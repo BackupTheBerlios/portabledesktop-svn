@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <desktop>
 	Some textual content.
-	<element commande="$ROOT$\dev\tools\dualxplorer_dualxplorer_0.8.66_francais_14841.exe" icone="Y:\av-3111.gif" nom="Dual Explorer " x="57" y="97"/>
+	<element commande="$ROOT$\dev\tools\dualxplorer_dualxplorer_0.8.66_francais_14841.exe" icone="$ROOT$\av-3111.gif" nom="Dual \nExplorer 2" x="78" y="116"/>
+	<element commande="$ROOT$\dev\tools\dualxplorer_dualxplorer_0.8.66_francais_14841.exe" icone="$ROOT$\av-3111.gif" nom="Dual Explorer 2" x="217" y="52"/>
+	<element commande="$ROOT$\dev\java\jdk\jre\bin\javaw.exe -classpath $ROOT$\dev\projects\exec\postit\ -jar $ROOT$\dev\projects\exec\postit\launcher.jar  org.egedede.launcher.ELauncher" home="$ROOT$\dev\projects\exec\postit" icone="$ROOT$\av-3111.gif" nom="Postit" x="261" y="132"/>
+	<element commande="$ROOT$\dev\projects\exec\postit\launcher.bat" home="$ROOT$\dev\projects\exec\postit" icone="$ROOT$\av-3111.gif" nom="Postit.bat" x="10" y="10"/>
 </desktop>

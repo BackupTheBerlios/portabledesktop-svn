@@ -15,10 +15,10 @@ class BureauPanel (wx.Panel):
         self.facade = facade
         self.startPosition = wx.Point(0,0)
         self.selectedElement=None
-        
-        transparent = self.SetTransparent(0)
-        print transparent
-#        self.background = wx.Image(self.facade.computePath(Configuration.Configuration.getInstance('general').getProperty('background')))
+        self.font = wx.Font(10,wx.FONTFAMILY_MODERN,wx.FONTSTYLE_NORMAL,wx.FONTWEIGHT_NORMAL)
+        self.background = wx.Image(self.facade.computePath(Configuration.Configuration.getInstance('general').getProperty('background')))
+        image = self.background.Scale(self.GetClientSize()[0],self.GetClientSize()[1])
+        self.bitmap = wx.BitmapFromImage(image)
         #        self.Bind(wx.EVT_ERASE_BACKGROUND, self.OnEraseBackground)
         self.Bind(wx.EVT_PAINT, self.OnPaint)
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
@@ -42,6 +42,8 @@ class BureauPanel (wx.Panel):
         self.Refresh();
 
     def OnResize(self,evt):
+        image = self.background.Scale(self.GetClientSize()[0],self.GetClientSize()[1])
+        self.bitmap = wx.BitmapFromImage(image)
         self.Refresh()
         
     def OnLeaveWindow(self, evt):
@@ -53,16 +55,22 @@ class BureauPanel (wx.Panel):
             self.facade.execute(element)
 
     def drawElements(self, dc):
+        dc.SetFont(self.font)
         for element in self.bureau.getElements():
             imagePath = element.getIcone()
             imagePath = self.facade.computePath(imagePath)
             image = wx.Image(imagePath)
             image = image.Scale(40,40)
             bitmap = wx.BitmapFromImage(image)
+            textWidth = dc.GetFullTextExtent(element.getNom(),dc.GetFont())[0]
+            textHeight = dc.GetFullTextExtent(element.getNom(),dc.GetFont())[1]
             if element.isSelected():
-                dc.DrawRectangle(element.x-5,element.y-5,50,50+10)
+                if textWidth<50:
+                    dc.DrawRectangle(element.x-5,element.y-5,50,50+10)
+                else:
+                    dc.DrawRectangle(element.x+15-textWidth/2,element.y-5,textWidth,50+textHeight)
             dc.DrawBitmap(bitmap, element.getX(), element.getY())
-            dc.DrawText(element.getNom(), element.getX(), element.getY()+40)
+            dc.DrawText(element.getNom(), element.getX()+20-textWidth/2, element.getY()+40)
         pass
 
     def findElement(self, point):
@@ -75,11 +83,9 @@ class BureauPanel (wx.Panel):
     # Fired whenever a paint event occurs
     def OnPaint(self, evt):
         dc = wx.PaintDC(self)
-        self.PrepareDC(dc)
         dc.SetBackgroundMode(wx.TRANSPARENT)
-#        image = self.background.Scale(self.parent.GetClientSize()[0],self.parent.GetClientSize()[1])
-#        bitmap = wx.BitmapFromImage(image)
-#        dc.DrawBitmap(bitmap, 0,0)
+        self.PrepareDC(dc)
+        dc.DrawBitmap(self.bitmap, 0,0)
         self.drawElements(dc)
 
     # Left mouse button is down.
@@ -105,6 +111,6 @@ class BureauPanel (wx.Panel):
         self.startPosition = evt.GetPosition()
         self.selectedElement.x = self.selectedElement.x-diff[0]				
         self.selectedElement.y = self.selectedElement.y-diff[1]
-#        rect = wx.Rect(self.selectedElement.x-10,self.selectedElement.y-10,80,100)
+        rect = wx.Rect(self.selectedElement.x-50,self.selectedElement.y-50,100,100)
+        #self.Refresh(True,rect)
         self.Refresh()
-        

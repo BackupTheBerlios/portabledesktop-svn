@@ -15,14 +15,14 @@ class BureauLoader:
     
     def __init__(self):
         self.pathManager = None
-        self.framakeyLoader = fLoader.FramakeyLoader()
+        self.framaKeyLoader = fLoader.FramakeyLoader()
 
     def load(self,name):
         print "nom de l'objet à charger : ",name
         if name[-4:]==".xml":
             bureau = self.loadXML(name)
         else:
-            bureau = self.framakeyLaoder.load(name)
+            bureau = self.framaKeyLoader.load(name)
         
         return bureau
 
@@ -34,11 +34,14 @@ class BureauLoader:
         elements = dom.getElementsByTagName('element')
         for element in elements:
             nom=element.getAttribute('nom')
+            cwd=element.getAttribute('home')
             x=int(element.getAttribute('x'))
             y=int(element.getAttribute('y'))
             commande=element.getAttribute('commande')
             icone=element.getAttribute('icone')
             el = Element.Element(nom,x,y,commande,icone)
+            el.cwd=cwd
+            print "cwd = ",cwd
             bureau.getElements().append(el)
         dom.unlink()
         return bureau

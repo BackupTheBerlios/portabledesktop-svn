@@ -43,7 +43,8 @@ class DesktopMenu(wx.Menu):
         panel = elementPanel.EditElementPanel (parent = self.parent,conf=confPath, element = self.element,facade = self.facade)
         panel.SetPosition(self.position)
         result = panel.ShowModal()
-        print "DesktopMenu.OnModify : ",result,panel.GetReturnCode()
+        if result== wx.ID_OK:
+            panel.OnAddModify()
         pass
         
     def OnExecute(self, event):
@@ -56,10 +57,8 @@ class DesktopMenu(wx.Menu):
         panel = elementPanel.EditElementPanel (parent = self.parent,conf=confPath, element = element,facade = self.facade)
         panel.SetPosition(self.position)
         result = panel.ShowModal()
-        print result,panel.GetReturnCode(), " (OK : ", wx.ID_OK,", CANCEL = ",wx.ID_CANCEL,")"
         if result== wx.ID_OK:
             panel.OnAddModify()
-            print "resultat OK : ",panel.element
             self.desktop.elements.append(panel.element)
         pass
         

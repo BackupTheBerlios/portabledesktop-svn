@@ -23,14 +23,17 @@ class BureauStorer:
             nom=element.nom
             x=element.x
             y=element.y
-            commande=element.commande
-            icone=element.icone
+            commande=self.pathManager.packagePath(element.commande)
+            icone=self.pathManager.packagePath(element.icone)
+            cwd=self.pathManager.packagePath(element.cwd)
             xmlElement = doc.createElement("element")
             xmlElement.setAttribute('nom',nom)
             xmlElement.setAttribute('x',str(x))
             xmlElement.setAttribute('y',str(y))
             xmlElement.setAttribute('commande',commande)
             xmlElement.setAttribute('icone',icone)
+            if cwd:
+                xmlElement.setAttribute('home',cwd)
             top_element.appendChild(xmlElement)
         # writing xml in file
         computedPath = Configuration.Configuration.getInstance('general').getProperty('last_session')
